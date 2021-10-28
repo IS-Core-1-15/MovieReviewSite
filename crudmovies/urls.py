@@ -9,7 +9,7 @@ urlpatterns = [
     path('movie/<str:movieID>/editReview/<int:reviewID>/',
          addReviewPageView, name='addReviewPageView'),
     path('', searchPageView, name='search'),
-    path('', listPageView, name='list')
+    path('', listPageView, name='list'),
     path('movie/addMovie', addMoviePageView, name='addMoviePageView'),
     path('movie/<str:movieID>/editReview/<int:reviewID>/',
          addReviewPageView, name='addReviewPageView'),
