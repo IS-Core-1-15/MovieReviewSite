@@ -14,3 +14,19 @@ def searchPageView(request):
 
 def listPageView(request):
     return HttpResponse('List')
+
+
+def indexPageView(request):
+    return HttpResponse('Index')
+
+
+def movieInfoPageView(request):
+    return HttpResponse('MovieInfoPageView')
+
+
+def addMoviePageView(request):
+    return HttpResponse('addMoviePageView')
+
+
+def addReviewPageView(request):
+    return HttpResponse('addReviewPageView')
