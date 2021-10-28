@@ -5,11 +5,11 @@ from django.http import HttpResponse
 def indexPageView(request):
     return HttpResponse('Index')
 
-def movieInfoPageView(request):
+def movieInfoPageView(request, movieID):
     return HttpResponse('MovieInfoPageView')
 
 def addMoviePageView(request):
     return HttpResponse('addMoviePageView')
 
-def addReviewPageView(request):
+def addReviewPageView(request, movieID, reviewID):
     return HttpResponse('addReviewPageView')
