@@ -20,7 +20,7 @@ def indexPageView(request):
     return HttpResponse('Index')
 
 
-def movieInfoPageView(request):
+def movieInfoPageView(request, movieID):
     return HttpResponse('MovieInfoPageView')
 
 
@@ -29,4 +29,8 @@ def addMoviePageView(request):
 
 
 def addReviewPageView(request):
+    return HttpResponse('addReviewPageView')
+
+
+def addReviewPageView(request, movieID, reviewID):
     return HttpResponse('addReviewPageView')
