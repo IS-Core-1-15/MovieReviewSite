@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def indexPageView():
+def indexPageView(request):
     return HttpResponse('Index')
 
 
@@ -12,10 +12,6 @@ def searchPageView(request):
 
 def listPageView(request):
     return HttpResponse('List')
-
-
-def indexPageView(request):
-    return HttpResponse('Index')
 
 
 def editReviewView(request) :
@@ -44,10 +40,6 @@ def movieInfoPageView(request, movieID):
 
 def addMoviePageView(request):
     return HttpResponse('addMoviePageView')
-
-
-def addReviewPageView(request):
-    return HttpResponse('addReviewPageView')
 
 
 def addReviewPageView(request, movieID, reviewID):
