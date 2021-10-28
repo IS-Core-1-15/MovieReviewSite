@@ -19,7 +19,12 @@ def listPageView(request):
 def indexPageView(request):
     return HttpResponse('Index')
 
+def aboutPageView(Request):
+    return HttpResponse('About')
 
+def editMoviePageView(Request):
+    return HttpResponse('editMoviePageView')
+    
 def movieInfoPageView(request, movieID):
     return HttpResponse('MovieInfoPageView')
 
