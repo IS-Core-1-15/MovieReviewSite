@@ -5,6 +5,45 @@ from django.http import HttpResponse
 def indexPageView(request):
     return HttpResponse('Index')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def editReviewView(request) :
     return HttpResponse('Edit Review')
 
