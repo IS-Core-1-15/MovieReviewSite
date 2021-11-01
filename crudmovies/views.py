@@ -42,5 +42,5 @@ def addMoviePageView(request):
     return HttpResponse('addMoviePageView')
 
 
-def addReviewPageView(request, movieID, reviewID):
+def addReviewPageView(request, movieID):
     return HttpResponse('addReviewPageView')
