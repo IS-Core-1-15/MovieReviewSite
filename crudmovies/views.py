@@ -1,9 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 # Create your views here.
 def indexPageView(request):
-    return render(request, 'base.html')
+    movies = Movie.objects.all()
+    print(movies[0])
+    context = {
+        'movielist': movies
+    }
+    return render(request, 'crudmovies/review.html', context)
 
 
 def searchPageView(request):

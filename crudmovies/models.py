@@ -22,7 +22,7 @@ class Movie(models.Model):
 class Review(models.Model):
     user_id = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     movie_id = models.ForeignKey(Movie, null=True, blank=True, on_delete=models.SET_NULL)
-    rating = models.IntegerField(max_length=1)
+    rating = models.IntegerField()
     description = models.TextField(max_length=500)
     review_date = models.DateField()
 
