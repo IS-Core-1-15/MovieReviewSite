@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def indexPageView(request):
-    return HttpResponse('Index')
+    return render(request, 'base.html')
 
 
 def searchPageView(request):
