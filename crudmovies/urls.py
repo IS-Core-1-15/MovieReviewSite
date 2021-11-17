@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import indexPageView, moviePageView, addMoviePageView, addReviewPageView, searchPageView, listPageView, aboutPageView, editMoviePageView, deleteMovieView, deleteReviewView, deleteReviewView, editReviewView
+from .views import *
 
 urlpatterns = [
     path('', indexPageView, name='index'),

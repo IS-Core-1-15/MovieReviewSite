@@ -1,22 +1,31 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.conf import settings
+from django.templatetags.static import static
+import os
 from .models import *
 
 # Create your views here.
 # List all the movies in the DB
 def indexPageView(request):
     movies = Movie.objects.all()
+    path = settings.MEDIA_ROOT
+    img_list = os.listdir(path + '/photos')
     context = {
-        'movielist': movies
+        'movielist': movies,
+        'image': img_list[0]
     }
     return render(request, 'crudmovies/index.html', context)
 
 # show single movie info
 def moviePageView(request, movieTitle):
     movie = Movie.objects.filter(title=movieTitle)
+    path = settings.MEDIA_ROOT
+    img_list = os.listdir(path + '/photos')
 
     context = {
-        'movie': movie
+        'movie': movie,
+        'image': img_list[0]
     }
 
     return render(request, 'crudmovies/single.html', context)

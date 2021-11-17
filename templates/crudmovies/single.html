@@ -12,7 +12,7 @@
 <div class="content">
 	<div class="row">
 		<div class="col-md-6">
-			<figure class="movie-poster"><img src="dummy/single-image.jpg" alt="#"></figure>
+			<figure class="movie-poster"><img src="{{ MEDIA_URL }}../media/photos/{{ image }}" alt="{{ movie.title }} image"></figure>
 		</div>
 		<div class="col-md-6">
 			<h2 class="movie-title">{{movie.title|title}}</h2>
