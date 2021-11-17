@@ -3,14 +3,23 @@ from django.http import HttpResponse
 from .models import *
 
 # Create your views here.
+# List all the movies in the DB
 def indexPageView(request):
     movies = Movie.objects.all()
-    print(movies[0])
     context = {
         'movielist': movies
     }
-    return render(request, 'crudmovies/review.html', context)
+    return render(request, 'crudmovies/index.html', context)
 
+# show single movie info
+def moviePageView(request, movieTitle):
+    movie = Movie.objects.filter(title=movieTitle)
+
+    context = {
+        'movie': movie
+    }
+
+    return render(request, 'crudmovies/single.html', context)
 
 def searchPageView(request):
     return HttpResponse('Search')
@@ -38,10 +47,6 @@ def aboutPageView(Request):
 
 def editMoviePageView(Request):
     return HttpResponse('editMoviePageView')
-
-
-def movieInfoPageView(request, movieID):
-    return HttpResponse('MovieInfoPageView')
 
 
 def addMoviePageView(request):
