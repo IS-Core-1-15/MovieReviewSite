@@ -9,7 +9,7 @@ class User(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=30)
-    duration = models.DurationField()
+    duration = models.IntegerField()
     release_date = models.DateField()
     director = models.CharField(max_length=60)
     main_photo = models.ImageField(upload_to='photos')

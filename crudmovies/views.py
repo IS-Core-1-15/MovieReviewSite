@@ -24,7 +24,7 @@ def moviePageView(request, movieTitle):
     img_list = os.listdir(path + '/photos')
 
     context = {
-        'movie': movie,
+        'movie': movie[0],
         'image': img_list[0]
     }
 
