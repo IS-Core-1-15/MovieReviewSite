@@ -64,7 +64,21 @@ def editMoviePageView(Request):
 
 
 def addMoviePageView(request):
-    return HttpResponse('addMoviePageView')
+    if request.method == 'POST' :
+        movie =  Movie()
+        
+        movie.title = request.POST['title']
+        movie.duration = request.POST['runtime']
+        movie.release_date = request.POST['release_date']
+        movie.director = request.POST['director']
+        movie.main_photo = request.POST['photo']
+
+        movie.save()
+
+        return indexPageView(request)
+
+    else : 
+        return render(request, 'crudmovies/addMovie.html')
 
 
 def addReviewPageView(request, movieID):
