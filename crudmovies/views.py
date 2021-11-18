@@ -22,10 +22,12 @@ def moviePageView(request, movieTitle):
     movie = Movie.objects.filter(title=movieTitle)
     path = settings.MEDIA_ROOT
     img_list = os.listdir(path + '/photos')
+    reviews = Review.objects.get(movie_id=movie.id)
 
     context = {
         'movie': movie[0],
-        'image': img_list[0]
+        'image': img_list[0],
+        'reviews' : reviews
     }
 
     return render(request, 'crudmovies/single.html', context)
@@ -64,7 +66,21 @@ def editMoviePageView(Request):
 
 
 def addMoviePageView(request):
-    return HttpResponse('addMoviePageView')
+    if request.method == 'POST' :
+        movie =  Movie()
+        
+        movie.title = request.POST['title']
+        movie.duration = request.POST['runtime']
+        movie.release_date = request.POST['release_date']
+        movie.director = request.POST['director']
+        movie.main_photo = request.POST['photo']
+
+        movie.save()
+
+        return indexPageView(request)
+
+    else : 
+        return render(request, 'crudmovies/addMovie.html')
 
 
 def addReviewPageView(request, movieID):
