@@ -22,10 +22,12 @@ def moviePageView(request, movieTitle):
     movie = Movie.objects.filter(title=movieTitle)
     path = settings.MEDIA_ROOT
     img_list = os.listdir(path + '/photos')
+    reviews = Review.objects.get(movie_id=movie.id)
 
     context = {
         'movie': movie[0],
-        'image': img_list[0]
+        'image': img_list[0],
+        'reviews' : reviews
     }
 
     return render(request, 'crudmovies/single.html', context)
