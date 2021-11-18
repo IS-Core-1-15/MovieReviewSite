@@ -4,13 +4,8 @@
 <title>Movies</title>
 {% endblock %}
 {% block content %}
-<div class="breadcrumbs">
-	<a href="index.html">Home</a>
-	<span>Movie Review</span>
-</div>
-
 <div class="filters">
-	<select name="#" id="#" placeholder="Choose Category">
+	<select name="#" id="#" placeholder="Choose Category"> <!-- TODO: Do we need to include these in the DB?-->
 		<option value="#">Action</option>
 		<option value="#">Drama</option>
 		<option value="#">Fantasy</option>
@@ -27,13 +22,13 @@
 	{% for movie in movielist %}
 	<div class="movie">
 		<figure class="movie-poster"><img src="{{ MEDIA_URL }}media/photos/{{ image }}" alt="{{ movie.title }} image"></figure>
-		<div class="movie-title"><a href="{% url 'moviePageView' movieTitle=movie.title %}"">{{ movie.title }}</a></div>
+		<div class="movie-title"><a href="{% url 'moviePageView' movieTitle=movie.title %}">{{ movie.title }}</a></div>
 		<p>{{movie.director}}</p>
 	</div>
 	{% endfor %}
 </div> <!-- .movie-list -->
 
-<div class="pagination">
+<div class="pagination"> <!-- TODO: Paginagtion work?-->
 	<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
 	<span class="page-number current">1</span>
 	<a href="#" class="page-number">2</a>

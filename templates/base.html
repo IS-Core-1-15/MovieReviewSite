@@ -29,24 +29,24 @@
 		<div id="site-content">
 			<header class="site-header">
 				<div class="container">
-					<a href="index.html">
-						<img src="{% static "images/logo.png" %}" alt="" class="logo">
+					<a href="{% url 'index' %}">
+						<img src="{% static "images/logo.png" %}" alt="logo" class="logo">
 						<div class="logo-copy">
 							<h1 class="site-title">Crud Movies</h1>
-							<small class="site-description">Rate Crappy Movies</small>
+							<small class="site-description">A site to rate terrible movies. The higher the rating the worse the movie!</small>
 						</div>
 					</a> <!-- #branding -->
 
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item current-menu-item"><a href="review.html">Home</a></li>
-							<li class="menu-item"><a href="about.html">About</a></li>
-							<li class="menu-item"><a href="joinus.html">Join us</a></li>
-							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><a href="{% url 'index' %}">Home</a></li>
+							<li class="menu-item"><a href="{% url 'about' %}">About</a></li>
+							<li class="menu-item"><a href="{% url 'joinus' %}">Join us</a></li>
+							<li class="menu-item current-menu-item"><a href="{% url 'contact' %}">Contact</a></li>
 						</ul> <!-- .menu -->
 
-						<form action="#" class="search-form">
+						<form action="#" class="search-form"> <!-- TODO: Make the search function work-->
 							<input type="text" placeholder="Search...">
 							<button><i class="fa fa-search"></i></button>
 						</form>
@@ -69,10 +69,10 @@
 						<div class="col-md-2">
 							<div class="widget">
 								<h3 class="widget-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia nesciunt saepe cupiditate</p>
+								<p>Rate only terrible movies here. The higher the rating the worse the movie!</p>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-2"> <!--TODO: Figure out what to do here -->
 							<div class="widget">
 								<h3 class="widget-title">Recent Review</h3>
 								<ul class="no-bullet">
@@ -126,7 +126,7 @@
 						</div>
 					</div> <!-- .row -->
 
-					<div class="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+					<div class="colophon">Made by a group at BYU</div>
 				</div> <!-- .container -->
 
 			</footer>
