@@ -9,24 +9,18 @@ from .models import *
 # List all the movies in the DB
 def indexPageView(request):
     movies = Movie.objects.all()
-    path = settings.MEDIA_ROOT
-    img_list = os.listdir(path + '/photos')
     context = {
         'movielist': movies,
-        'image': img_list[0]
     }
     return render(request, 'crudmovies/index.html', context)
 
 # show single movie info
-def moviePageView(request, movieTitle):
-    movie = Movie.objects.filter(title=movieTitle)
-    path = settings.MEDIA_ROOT
-    img_list = os.listdir(path + '/photos')
-    reviews = Review.objects.get(movie_id=movie.id)
+def moviePageView(request, movieTitle, director):
+    movie = Movie.objects.filter(title=movieTitle, director=director)
+    reviews = Review.objects.filter(movie_id=movie[0].id)
 
     context = {
         'movie': movie[0],
-        'image': img_list[0],
         'reviews' : reviews
     }
 
