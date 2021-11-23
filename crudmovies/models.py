@@ -20,6 +20,7 @@ class Movie(models.Model):
         return f'{self.title} by {self.director}'
  
 class Review(models.Model):
+    # TODO: fix the user_id_id issue
     user_id = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     movie_id = models.ForeignKey(Movie, null=True, blank=True, on_delete=models.SET_NULL)
     rating = models.IntegerField()
