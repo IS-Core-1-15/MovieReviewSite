@@ -8,24 +8,14 @@
 <a href="{% url 'index' %}">Home</a>
 <span>Movie Details</span>
 </div>
-
 <div class="content">
 <div class="row">
 	<div class="col-md-4">
 		<div class="contact-form">
-        <form method='post' action="{% url 'addMoviePageView' %}">
+        <form method='post' action="{% url 'addMovie' %}">
 			{% csrf_token %}
-            <label for='release_date'>Movie title: </label>
+            <label for='release_date'>Find a movie: </label>
             <input type="text" class="name" name='title' id='title' placeholder="Movie title...">
-			<label for='release_date'>Runtime: </label>
-            <input type="number" class="name" name='runtime' id='runtime' placeholder="Runtime in minutes...">
-            <label for='release_date'>Release date: </label>
-            <input type="date" class="name" name='release_date' id='release_date'>
-            <label for='director'>Director: </label>
-            <input type="text" class="name" name='director' id='director' placeholder="Director...">
-            <label for='photo'>Upload Photo: </label>
-            <input type="file"  name='photo' id='photo' placeholder="Photo...">
-			<input type="submit" value="Add Movie">
         </form>
 		</div>
 	</div>
