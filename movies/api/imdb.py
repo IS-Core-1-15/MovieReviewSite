@@ -4,6 +4,12 @@ import requests
 class IMDB():
     def __init__(self, raw):
         self.title = raw['title']
+        self.imdbID = raw['id']
+        self.year = raw['year']
+        self.main_photo = raw['poster']
+        self.runtime = raw['length']
+        self.description = raw['plot']
+        self.imdb_rating = raw['rating']
         
 
 def searchMovie(key):
@@ -15,5 +21,5 @@ def searchMovie(key):
         }
 
     response = requests.request("GET", url, headers=headers)
-    json_response = json.loads(response)
+    json_response = json.loads(response.text)
     return IMDB(json_response)

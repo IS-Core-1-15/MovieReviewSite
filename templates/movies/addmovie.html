@@ -14,10 +14,17 @@
 		<div class="contact-form">
         <form method='post' action="{% url 'addMovie' %}">
 			{% csrf_token %}
-            <label for='release_date'>Find a movie: </label>
+            <label for='title'>Find a movie: </label>
             <input type="text" class="name" name='title' id='title' placeholder="Movie title...">
         </form>
+		<p>{{msg}}</p>
 		</div>
+		<div class="movie-list">
+			<div class="movie">
+				<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image"></figure>
+				<div class="movie-title"><p>{{ movie.title }}</p></div>
+			</div>
+		</div> <!-- .movie-list -->
 	</div>
 	<div class="col-md-7 col-md-offset-1">
 		<div class="map"></div>
