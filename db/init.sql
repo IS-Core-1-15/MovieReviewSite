@@ -28,9 +28,9 @@ CREATE TABLE review (
 );
 
 insert into movie(title, imdbID, release_year, runtime, imdb_rating, main_photo, description)
-values ('Thor: The Dark World', 'tt1981115', 2013, '1h 52min',  6.9, 'https://m.media-amazon.com/images/M/MV5BMTQyNzAwOTUxOF5BMl5BanBnXkFtZTcwMTE0OTc5OQ@@.jpg', 'When the Dark Elves attempt to plunge the universe into darkness, Thor must embark on a perilous and personal journey that will reunite him with doctor Jane Foster.')
+values ('Thor: The Dark World', 'tt1981115', 2013, '1h 52min',  6.9, 'https://m.media-amazon.com/images/M/MV5BMTQyNzAwOTUxOF5BMl5BanBnXkFtZTcwMTE0OTc5OQ@@.jpg', 'When the Dark Elves attempt to plunge the universe into darkness, Thor must embark on a perilous and personal journey that will reunite him with doctor Jane Foster.');
 
-insert into person(username) values ('testuser')
+insert into person(username) values ('testuser');
 
 insert into review(person_id, movie_id, rating, description, review_date)
-values ( 1, 1, 3.2, 'This is a test description', current_timestamp)
+values ( 1, 1, 3.2, 'This is a test description', current_timestamp);
