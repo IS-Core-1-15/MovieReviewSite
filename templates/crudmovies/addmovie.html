@@ -6,7 +6,7 @@
 {% block content %}
 <div class="breadcrumbs">
 <a href="{% url 'index' %}">Home</a>
-<span>Movie Details</span>
+<span>Add Movie</span>
 </div>
 <div class="content">
 <div class="row">
@@ -21,7 +21,7 @@
 
 		<p>{{msg}}</p>
 		{% if movie %}
-		<button type="submit" class='button'>Yes, Add Movie</button>
+		<a href="{% url 'saveMovie' movieID=movie.imdbID%}" class='button'>Yes, Add Movie</button>
 		{% endif %}
 		<p>{{msg2}}</p>
 
