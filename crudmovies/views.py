@@ -30,7 +30,7 @@ def moviePageView(request, movieTitle, movieYear):
 
 def addPageView(request):
     if request.method == 'GET':
-        return render(request, 'movies/addmovie.html')
+        return render(request, 'crudmovies/addmovie.html')
     elif request.method == 'POST':
         key = request.POST['title']
         movie = searchMovie(key)
