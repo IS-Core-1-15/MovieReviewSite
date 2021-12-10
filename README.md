@@ -8,21 +8,17 @@ A basic CRUD app with PostgreSQL DB, python/django, and HTML/CSS. Deployed on He
 Steps to get set up:
 
 1. Clone Repository
-2. In the root directory create a media directory with a photos directory in it
-3. In Pgadmin create a "crud_movie" database
+2. In Pgadmin create a "crud_movie" database
+3. In Pgadmin run the sql script found in the "db" folder to create your tables and insert some data
 4. In the root directory create a a file called ".env" that has the following: (see @kalvinbw or slack for the secret key)
 ```
 DB_PASSWORD={yourPostgresPassword}
 SECRET_KEY={theSecretKey}
 ```
-6. Create a virtual env if you want. Name it "venv" please
-5. Run the following (on windows replace psycopg2-binary with psycopg)
+5. Create a virtual env if you want and start it
+6. Run the following (on windows replace psycopg2-binary with psycopg)
 ```
-pip install psycopg2-binary pillow python-dotenv
-```
-6. Run this to create the tables in the database
-```
-python manage.py migrate
+pip install django psycopg2-binary pillow requests dj-database-url django-heroku gunicorn whitenoise python-dotenv
 ```
 7. Run this to create a login
 ```
@@ -32,6 +28,4 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
-9. Visit [localhost:8000/admin](localhost:8000/admin) and sign in with credentials from step 7
-9. Click on the movies link and fill form to create a movie (see slack for a picture of Thor movie if you want to do that) and click save
-10. Visit the [homepage](localhost:8000) to see the site
+9. Visit the [homepage](localhost:8000) to see the site

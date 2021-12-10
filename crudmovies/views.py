@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.conf import settings
+from django.shortcuts import render
+from .api.imdb import searchMovie
 from django.templatetags.static import static
 import os
 from .models import *
@@ -15,16 +16,39 @@ def indexPageView(request):
     return render(request, 'crudmovies/index.html', context)
 
 # show single movie info
-def moviePageView(request, movieTitle, director):
-    movie = Movie.objects.filter(title=movieTitle, director=director)
-    reviews = Review.objects.filter(movie_id=movie[0].id)
+def moviePageView(request, movieTitle, movieYear):
+    movie = Movie.objects.filter(title=movieTitle, release_year=movieYear)
+    # reviews = Review.objects.filter(movie_id=movie[0].id)
 
     context = {
         'movie': movie[0],
-        'reviews' : reviews
+        # 'reviews' : reviews
     }
 
     return render(request, 'crudmovies/single.html', context)
+
+
+def addPageView(request):
+    if request.method == 'GET':
+        return render(request, 'crudmovies/addmovie.html')
+    elif request.method == 'POST':
+        key = request.POST['title']
+        movie = searchMovie(key)
+        if movie.title == '':
+            context = {
+                'msg': 'We could not find your movie, try another one!'
+            }
+        else:
+            context = {
+                'msg': 'Is this the movie you\'re looking for?',
+                'movie': movie
+            }
+        for attr, value in movie.__dict__.items():
+            print(f"{attr}: {value}")
+        return render(request, 'crudmovies/addmovie.html', context)
+
+def deleteMoviePageView(request):
+    return render(request, 'crudmovies/addmovie.html')
 
 def joinusPageView(request):
     return render(request, 'crudmovies/joinus.html')
