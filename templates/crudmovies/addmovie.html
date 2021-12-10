@@ -19,14 +19,17 @@
 
 		<p>{{msg}}</p>
 		<p>{{msg2}}</p>
-		<button type="submit">Yes, Add Movie</button>
+		</form>
 		</div>
+
+		<form method='post' action="{% url 'addMovie' %}">
+		<button type="submit">Yes, Add Movie</button>
 		<div class="movie-list">
 			<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image" height="300"></figure>
 				<div class="movie-title"><p>{{ movie.title }}</p></div>
 			<p>Runtime: {{ movie.runtime}}</p>
 			<p>Description: {{movie.description}}</p>
-		</div> <!-- .movie-list -->
+		</div>
 		</form>
 	</div>
 	<div class="col-md-7 col-md-offset-1">
