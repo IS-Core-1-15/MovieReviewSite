@@ -46,15 +46,16 @@ def addPageView(request):
         else:
             context = {
                 'msg': 'Is this the movie you\'re looking for?',
-                'msg2': 'If not, make sure it is spelled correctly or try searching for a different movie',
                 'movie': movie
             }
 
         return render(request, 'crudmovies/addmovie.html', context)
 
+
 def saveMoviePageView(request, movieID):
-    #logic to save the movie to the db
+    # logic to save the movie to the db
     return render(request, 'crudmovies/index.html')
+
 
 def deleteMoviePageView(request):
     return render(request, 'crudmovies/addmovie.html')

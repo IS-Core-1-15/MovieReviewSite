@@ -23,12 +23,10 @@
 		{% if movie %}
 		<a href="{% url 'saveMovie' movieID=movie.imdbID%}" class='button'>Yes, Add Movie</button>
 		{% endif %}
-		<p>{{msg2}}</p>
-
 		</div>
+
 		{% if movie %}
 		<div class="movie-list">
-
 			<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image" height="300"></figure>
 				<div class="movie-title"><p>{{ movie.title }}</p></div>
 					<p>Runtime: {{ movie.runtime}}</p>
