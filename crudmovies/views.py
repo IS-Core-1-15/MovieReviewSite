@@ -52,6 +52,9 @@ def addPageView(request):
 
         return render(request, 'crudmovies/addmovie.html', context)
 
+def saveMoviePageView(request, movieID):
+    #logic to save the movie to the db
+    return render(request, 'crudmovies/index.html')
 
 def deleteMoviePageView(request):
     return render(request, 'crudmovies/addmovie.html')
