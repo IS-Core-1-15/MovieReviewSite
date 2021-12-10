@@ -16,18 +16,25 @@
 			{% csrf_token %}
             <label for='title'>Find a movie: </label>
             <input type="text" class="name" name='title' id='title' placeholder="Movie title...">
+			<button type="submit">Search</button>	
+		</form>
 
 		<p>{{msg}}</p>
+		{% if movie %}
+		<button type="submit" class='button'>Yes, Add Movie</button>
+		{% endif %}
 		<p>{{msg2}}</p>
-		<button type="submit">Yes, Add Movie</button>
+
 		</div>
+		{% if movie %}
 		<div class="movie-list">
+
 			<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image" height="300"></figure>
 				<div class="movie-title"><p>{{ movie.title }}</p></div>
-			<p>Runtime: {{ movie.runtime}}</p>
-			<p>Description: {{movie.description}}</p>
+					<p>Runtime: {{ movie.runtime}}</p>
+					<p>Description: {{movie.description}}</p>
 		</div> <!-- .movie-list -->
-		</form>
+		{% endif %}
 	</div>
 	<div class="col-md-7 col-md-offset-1">
 		<div class="map"></div>
