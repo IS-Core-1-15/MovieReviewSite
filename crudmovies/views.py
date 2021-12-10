@@ -49,8 +49,7 @@ def addPageView(request):
                 'msg2': 'If not, make sure it is spelled correctly or try searching for a different movie',
                 'movie': movie
             }
-        for attr, value in movie.__dict__.items():
-            print(f"{attr}: {value}")
+
         return render(request, 'crudmovies/addmovie.html', context)
 
 
