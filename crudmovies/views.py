@@ -20,12 +20,12 @@ def indexPageView(request):
 # show single movie info
 
 
-def moviePageView(request, movieTitle, movieYear):
-    movie = Movie.objects.filter(title=movieTitle, release_year=movieYear)
-    reviews = Review.objects.filter(movie_id=movie[0].movie_id)
+def moviePageView(request, movieID):
+    movie = Movie.objects.get(movie_id=movieID)
+    reviews = Review.objects.filter(movie_id=movie.movie_id)
 
     context = {
-        'movie': movie[0],
+        'movie': movie,
         'reviews' : reviews,
     }
 
@@ -111,9 +111,11 @@ def editReviewView(request):
 
 
 def deleteReviewView(request, review_id):
-    newReview_id = review_id
-    
-    return HttpResponse('This should delete the review')
+    review = Review.objects.get(review_id=review_id)
+    movie = review.movie_id
+    review.delete()
+
+    return redirect('moviePageView', movieID=movie)
 
 def editMoviePageView(Request):
     return HttpResponse('editMoviePageView')

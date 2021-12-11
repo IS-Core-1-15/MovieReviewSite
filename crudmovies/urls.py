@@ -3,7 +3,7 @@ from .views import *
 
 urlpatterns = [
     path('', indexPageView, name='index'),
-    path('<str:movieTitle>/<int:movieYear>', moviePageView, name='moviePageView'),
+    path('movie/<int:movieID>/', moviePageView, name='moviePageView'),
     path('joinus/', joinusPageView, name='joinus'),
     path('about/', aboutPageView, name='about'),
     path('contact/', contactPageView, name='contact'),
