@@ -21,7 +21,7 @@
 <div class="movie-list">
 	{% for movie in movielist %}
 	<div class="movie">
-		<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image"></figure>
+		<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image" height="300"></figure>
 		<div class="movie-title"><a href="{% url 'moviePageView' movieTitle=movie.title movieYear=movie.release_year%}">{{ movie.title }}</a></div>
 		<p>{{movie.release_year}}</p>
 	</div>
