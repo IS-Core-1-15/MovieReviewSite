@@ -18,10 +18,11 @@
             <input type="text" class="name" name='title' id='title' placeholder="Movie title...">
 			<button type="submit">Search</button>	
 		</form>
-
 		<p>{{msg}}</p>
 		{% if movie %}
-		<a href="{% url 'saveMovie' movieID=movie.imdbID%}" class='button'>Yes, Add Movie</button>
+		<div>
+			<a href="{% url 'saveMovie' movieID=movie.imdbID%}" class=''>Yes, Add Movie</button>
+		</div>
 		{% endif %}
 		</div>
 
