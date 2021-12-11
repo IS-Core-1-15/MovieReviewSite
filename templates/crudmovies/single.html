@@ -31,22 +31,26 @@
 			<a href="{% url "editReview" %}" class="button">Add Review</a>
 		</div>
 	</div> <!-- .row -->
+	<br><br>
 	<h1>Movie Reviews</h1>
 	<!--Need logic for displaying the following only when no reviews exist-->
+	{% if not reviews %}
 	<p>We're sorry. It doesn't look like anyone has reviewed this movie.</p>
 	<a href="{% url "editReview" %}" class="button">Add Review</a>
-
+	{% else %}
 	<div class="entry-content"> <!--TODO: Do we just get this from IMDB?-->
 		{% for review in reviews %}
 		<div class="">
-			<p>UserID: {{review.user_id}}</p>
-			<p>MovieID: {{review.movie_id}}</p>
+			<p>User: {{review.username}}</p>
 			<p>Review Date: {{review.review_date}}</p>
 			<p>Description: {{review.description}}</p>
-			<p>Rating: {{review.rating}}</p>
+			<p>Rating: {{review.rating}} out of 5</p>
+			<a href="{% url "deleteReview" %}" class="button">Delete Review</a>
 		</div>
+		<br><br>
 		{% endfor %}
 	</div>
+	{% endif %}
 	<div class="entry-content">
 		
 	</div>

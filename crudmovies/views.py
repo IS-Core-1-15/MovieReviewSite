@@ -22,11 +22,11 @@ def indexPageView(request):
 
 def moviePageView(request, movieTitle, movieYear):
     movie = Movie.objects.filter(title=movieTitle, release_year=movieYear)
-    # reviews = Review.objects.filter(movie_id=movie[0].id)
+    reviews = Review.objects.filter(movie_id=movie[0].movie_id)
 
     context = {
         'movie': movie[0],
-        # 'reviews' : reviews
+        'reviews' : reviews,
     }
 
     return render(request, 'crudmovies/single.html', context)
@@ -111,8 +111,8 @@ def editReviewView(request):
 
 
 def deleteReviewView(request):
-    return HttpResponse('Delete Review')
 
+    return HttpResponse('This should delete the review')
 
 def editMoviePageView(Request):
     return HttpResponse('editMoviePageView')
