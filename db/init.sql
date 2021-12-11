@@ -1,7 +1,7 @@
 CREATE TABLE movie (
     movie_id serial PRIMARY KEY,
     title varchar(40) NOT NULL,
-    imdbID char(10) NOT NULL,
+    imdbid char(10) NOT NULL,
     release_year int,
     runtime varchar(10),
     imdb_rating float,
@@ -27,7 +27,7 @@ CREATE TABLE review (
         foreign key(movie_id) references movie(movie_id)
 );
 
-insert into movie(title, imdbID, release_year, runtime, imdb_rating, main_photo, description)
+insert into movie(title, imdbid, release_year, runtime, imdb_rating, main_photo, description)
 values ('Thor: The Dark World', 'tt1981115', 2013, '1h 52min',  6.9, 'https://m.media-amazon.com/images/M/MV5BMTQyNzAwOTUxOF5BMl5BanBnXkFtZTcwMTE0OTc5OQ@@.jpg', 'When the Dark Elves attempt to plunge the universe into darkness, Thor must embark on a perilous and personal journey that will reunite him with doctor Jane Foster.');
 
 insert into person(username) values ('testuser');

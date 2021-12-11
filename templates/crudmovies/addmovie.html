@@ -6,7 +6,7 @@
 {% block content %}
 <div class="breadcrumbs">
 <a href="{% url 'index' %}">Home</a>
-<span>Movie Details</span>
+<span>Add Movie</span>
 </div>
 <div class="content">
 <div class="row">
@@ -16,15 +16,23 @@
 			{% csrf_token %}
             <label for='title'>Find a movie: </label>
             <input type="text" class="name" name='title' id='title' placeholder="Movie title...">
-        </form>
+			<button type="submit">Search</button>	
+		</form>
+
 		<p>{{msg}}</p>
+		{% if movie %}
+		<a href="{% url 'saveMovie' movieID=movie.imdbID%}" class='button'>Yes, Add Movie</button>
+		{% endif %}
 		</div>
+
+		{% if movie %}
 		<div class="movie-list">
-			<div class="movie">
-				<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image"></figure>
+			<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image" height="300"></figure>
 				<div class="movie-title"><p>{{ movie.title }}</p></div>
-			</div>
+					<p>Runtime: {{ movie.runtime}}</p>
+					<p>Description: {{movie.description}}</p>
 		</div> <!-- .movie-list -->
+		{% endif %}
 	</div>
 	<div class="col-md-7 col-md-offset-1">
 		<div class="map"></div>
