@@ -1,6 +1,6 @@
 CREATE TABLE movie (
     movie_id serial PRIMARY KEY,
-    title varchar(40) NOT NULL,
+    title varchar(200) NOT NULL,
     imdbid char(10) NOT NULL,
     release_year int,
     runtime varchar(10),

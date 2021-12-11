@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Movie(models.Model):
-    movie_id = models.IntegerField(primary_key=True)
-    title = models.CharField(max_length=30)
+    movie_id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=200)
     imdbid = models.CharField(max_length=10)
     runtime = models.CharField(max_length=10)
     release_year = models.IntegerField()
