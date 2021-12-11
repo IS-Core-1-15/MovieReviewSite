@@ -45,7 +45,7 @@
 			<p>Review Date: {{review.review_date}}</p>
 			<p>Description: {{review.description}}</p>
 			<p>Rating: {{review.rating}} out of 5</p>
-			<a href="{% url "deleteReview" %}" class="button">Delete Review</a>
+			<a href="{% url "deleteReview" review_id=review.review_id %}" class="button">Delete Review</a>
 		</div>
 		<br><br>
 		{% endfor %}

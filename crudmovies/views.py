@@ -110,8 +110,9 @@ def editReviewView(request):
     return render(request, 'crudmovies/editreview.html')
 
 
-def deleteReviewView(request):
-
+def deleteReviewView(request, review_id):
+    newReview_id = review_id
+    
     return HttpResponse('This should delete the review')
 
 def editMoviePageView(Request):
