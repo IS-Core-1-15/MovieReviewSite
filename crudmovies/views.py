@@ -67,7 +67,7 @@ def saveMoviePageView(request):
     movie = Movie.create(s)
     movie.save()
 
-    return render(request, 'crudmovies/index.html')
+    return redirect('index')
 
 
 def joinusPageView(request):
