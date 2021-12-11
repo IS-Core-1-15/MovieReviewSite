@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.shortcuts import render
 from .api.imdb import searchMovie
@@ -47,8 +47,14 @@ def addPageView(request):
             print(f"{attr}: {value}")
         return render(request, 'crudmovies/addmovie.html', context)
 
-def deleteMoviePageView(request):
-    return render(request, 'crudmovies/addmovie.html')
+def deleteMoviePageView(request, movie_title, movie_year):
+    #return HttpResponse("You are trying to delete the movie " + movie_title + " produced in " + movie_year 
+    #+ " . Nothing actually happened.")
+
+    movieToDelete=Movie.objects.get(title=movie_title, release_year=movie_year)
+    movieToDelete.delete()
+
+    return redirect('index')
 
 def joinusPageView(request):
     return render(request, 'crudmovies/joinus.html')

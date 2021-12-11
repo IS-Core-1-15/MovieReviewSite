@@ -27,6 +27,8 @@
 				<li><strong>Premiere:</strong> {{movie.release_year}}</li>
 				<li><strong>Category:</strong> Animation/Adventure/Comedy</li> <!--TODO: Do we need to record categories in the DB?-->
 			</ul>
+			<a href="{% url "deleteMovie" movie_title=movie.title movie_year=movie.release_year %}" class="button">Delete Movie</a>
+			<a href="{% url "editReview" %}" class="button">Add Review</a>
 		</div>
 	</div> <!-- .row -->
 	<div class="entry-content"> <!--TODO: Do we just get this from IMDB?-->

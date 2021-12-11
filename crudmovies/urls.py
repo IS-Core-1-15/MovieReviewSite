@@ -12,5 +12,5 @@ urlpatterns = [
     path('deleteReview/', deleteReviewView, name='deleteReview'),
     path('editReviewView/', editReviewView, name='editReview'),
     path('addMovie/', addPageView, name='addMovie'),
-    path('deleteMovie/', deleteMoviePageView, name='deleteMovie'),
+    path('deleteMovie/<str:movie_title>/<str:movie_year>', deleteMoviePageView, name='deleteMovie'),
 ]
