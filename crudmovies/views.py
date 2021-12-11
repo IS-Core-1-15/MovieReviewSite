@@ -51,15 +51,17 @@ def addPageView(request):
 
         return render(request, 'crudmovies/addmovie.html', context)
 
-def deleteMoviePageView(request, movie_title, movie_year):
-    #return HttpResponse("You are trying to delete the movie " + movie_title + " produced in " + movie_year 
-    #+ " . Nothing actually happened.")
 
-    movieToDelete=Movie.objects.get(title=movie_title, release_year=movie_year)
+def deleteMoviePageView(request, movie_title, movie_year):
+    # return HttpResponse("You are trying to delete the movie " + movie_title + " produced in " + movie_year
+    # + " . Nothing actually happened.")
+
+    movieToDelete = Movie.objects.get(
+        title=movie_title, release_year=movie_year)
     movieToDelete.delete()
 
     return redirect('index')
-    
+
 
 def saveMoviePageView(request):
     id = request.POST['movie']
@@ -83,7 +85,21 @@ def contactPageView(request):
 
 
 def searchPageView(request):
-    return HttpResponse('Search')
+    key = request.POST['key']
+    form = request.POST
+    if 'key' in request.POST:
+        key = request.POST['key']
+        movies = Movie.objects.filter(title__contains=key)
+        context = {
+            'movielist': movies,
+        }
+    else:
+        key = False
+        msg = f'Sorry we could not find any movie with that name'
+
+    context['msg'] = msg
+
+    return render(request, 'crudmovies/index.html', context)
 
 
 def listPageView(request):
