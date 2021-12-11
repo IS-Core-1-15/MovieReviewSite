@@ -1,16 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class Person(models.Model):
-    person_id = models.IntegerField(primary_key=True)
-    username = models.CharField(max_length=30)
-
-    class Meta:
-        db_table = 'person'
-
-    def __str__(self):
-        return self.username
-
 
 class Movie(models.Model):
     movie_id = models.IntegerField(primary_key=True)
@@ -33,12 +23,7 @@ class Movie(models.Model):
 
 class Review(models.Model):
     review_id = models.IntegerField(primary_key=True)
-    person = models.ForeignKey(
-        'Person',
-        on_delete=models.CASCADE,
-        to_field='person_id',
-        db_column='person_id'
-    )
+    person = models.CharField(max_length=30)
     movie = models.ForeignKey(
         'Movie',
         on_delete=models.CASCADE,
