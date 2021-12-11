@@ -12,10 +12,21 @@ class Movie(models.Model):
     main_photo = models.URLField(max_length=200)
     imdb_rating = models.FloatField()
 
-    movie_reviews = models.ManyToManyField('Person', through='Review')
-
     class Meta:
         db_table = 'movie'
+
+    @classmethod
+    def create(self, movie):
+        movie = self(
+            title = movie.title,
+            imdbid = movie.imdbid,
+            runtime = movie.runtime,
+            release_year = movie.year,
+            description = movie.description,
+            main_photo = movie.main_photo,
+            imdb_rating = movie.imdb_rating,
+        )
+        return movie
 
     def __str__(self):
         return f'{self.title} by {self.release_year}'
@@ -23,7 +34,7 @@ class Movie(models.Model):
 
 class Review(models.Model):
     review_id = models.IntegerField(primary_key=True)
-    person = models.CharField(max_length=30)
+    username = models.CharField(max_length=30)
     movie = models.ForeignKey(
         'Movie',
         on_delete=models.CASCADE,
@@ -38,4 +49,4 @@ class Review(models.Model):
         db_table = 'review'
 
     def __str__(self):
-        return f'{self.person}: {self.movie}-{self.rating}'
+        return f'{self.username}: {self.movie}-{self.rating}'

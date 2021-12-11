@@ -61,8 +61,12 @@ def deleteMoviePageView(request, movie_title, movie_year):
     return redirect('index')
     
 
-def saveMoviePageView(request, movieID):
-    # logic to save the movie to the db
+def saveMoviePageView(request):
+    id = request.POST['movie']
+    s = searchMovie(id)
+    movie = Movie.create(s)
+    movie.save()
+
     return render(request, 'crudmovies/index.html')
 
 

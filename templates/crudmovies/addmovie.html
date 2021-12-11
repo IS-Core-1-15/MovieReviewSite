@@ -20,8 +20,12 @@
 		</form>
 		<p>{{msg}}</p>
 		{% if movie %}
-		<div>
-			<a href="{% url 'saveMovie' movieID=movie.imdbID%}" class=''>Yes, Add Movie</button>
+		<div class='contact-form'>
+			<form method='post' action="{% url 'saveMovie' %}">
+				{% csrf_token %}
+				<input type='hidden' value={{movie.imdbid}} name='movie' id='movie'>
+				<button>Yes, Add Movie</button>
+			</form>
 		</div>
 		{% endif %}
 		</div>
@@ -32,6 +36,7 @@
 				<div class="movie-title"><p>{{ movie.title }}</p></div>
 					<p>Runtime: {{ movie.runtime}}</p>
 					<p>Description: {{movie.description}}</p>
+					<p>Description: {{movie.imdbid}}</p>
 		</div> <!-- .movie-list -->
 		{% endif %}
 	</div>

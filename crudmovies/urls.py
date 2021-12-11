@@ -13,5 +13,5 @@ urlpatterns = [
     path('editReviewView/', editReviewView, name='editReview'),
     path('addMovie/', addPageView, name='addMovie'),
     path('deleteMovie/<str:movie_title>/<str:movie_year>', deleteMoviePageView, name='deleteMovie'),
-    path('saveMovie/<str:movieID>', saveMoviePageView, name='saveMovie')
+    path('saveMovie/', saveMoviePageView, name='saveMovie')
 ]

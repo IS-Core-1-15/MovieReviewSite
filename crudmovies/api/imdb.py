@@ -4,7 +4,7 @@ import requests
 class IMDB():
     def __init__(self, raw):
         self.title = raw['title']
-        self.imdbID = raw['id']
+        self.imdbid = raw['id']
         self.year = raw['year']
         self.main_photo = raw['poster']
         self.runtime = raw['length']
