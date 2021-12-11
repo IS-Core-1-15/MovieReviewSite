@@ -91,7 +91,7 @@ def listPageView(request):
 
 
 def editReviewView(request):
-    return HttpResponse('Edit Review')
+    return render(request, 'crudmovies/editreview.html')
 
 
 def deleteReviewView(request):

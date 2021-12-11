@@ -31,6 +31,11 @@
 			<a href="{% url "editReview" %}" class="button">Add Review</a>
 		</div>
 	</div> <!-- .row -->
+	<h1>Movie Reviews</h1>
+	<!--Need logic for displaying the following only when no reviews exist-->
+	<p>We're sorry. It doesn't look like anyone has reviewed this movie.</p>
+	<a href="{% url "editReview" %}" class="button">Add Review</a>
+
 	<div class="entry-content"> <!--TODO: Do we just get this from IMDB?-->
 		{% for review in reviews %}
 		<div class="">
