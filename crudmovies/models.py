@@ -41,7 +41,7 @@ class Review(models.Model):
         to_field='movie_id',
         db_column='movie_id'
     )
-    rating = models.IntegerField()
+    rating = models.DecimalField()
     description = models.TextField(max_length=500)
     review_date = models.DateField()
 
