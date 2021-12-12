@@ -121,5 +121,26 @@ def editMoviePageView(Request):
     return HttpResponse('editMoviePageView')
 
 
-def addReviewPageView(request, movieID):
-    return HttpResponse('addReviewPageView')
+def addReviewPageView(request, movie_id):
+    data = Movie.objects.get(movie_id = movie_id)
+
+    context = {
+        "record" : data
+    }
+
+    return render(request, 'crudmovies/addreview.html', context)
+
+def addNewReviewPageView(request):
+    from datetime import date
+    if request.method == 'POST':
+        review = Review()
+
+        review.username = request.POST['username']
+        review.movie_id = request.POST['movie_id']
+        review.rating = request.POST['rating']
+        review.description = request.POST['description']
+        review.review_date = date.today()
+
+        review.save()
+
+        return moviePageView(request, review.movie_id)

@@ -28,7 +28,7 @@
 				<li><strong>Category:</strong> Animation/Adventure/Comedy</li> <!--TODO: Do we need to record categories in the DB?-->
 			</ul>
 			<a href="{% url "deleteMovie" movie_title=movie.title movie_year=movie.release_year %}" class="button">Delete Movie</a>
-			<a href="{% url "editReview" %}" class="button">Add Review</a>
+			<a href="{% url "addReview" movie_id=movie.movie_id %}" class="button">Add Review</a>
 		</div>
 	</div> <!-- .row -->
 	<br><br>
@@ -36,7 +36,7 @@
 	<!--Need logic for displaying the following only when no reviews exist-->
 	{% if not reviews %}
 	<p>We're sorry. It doesn't look like anyone has reviewed this movie.</p>
-	<a href="{% url "editReview" %}" class="button">Add Review</a>
+	<a href="{% url "addReview" movie_id=movie.movie_id %}" class="button">Add Review</a>
 	{% else %}
 	<div class="entry-content"> <!--TODO: Do we just get this from IMDB?-->
 		{% for review in reviews %}
@@ -48,7 +48,7 @@
 			<p>ID: {{review.review_id}}</p>
 			<a href="{% url "deleteReview" review_id=review.review_id %}" class="button">Delete Review</a>
 		</div>
-		<br><br>
+		<br><br><hr>
 		{% endfor %}
 	</div>
 	{% endif %}
