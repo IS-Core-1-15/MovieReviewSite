@@ -98,7 +98,7 @@ def searchPageView(request):
         key = False
         msg = f'Sorry we could not find any movie with that name'
 
-    context['msg'] = msg
+  
 
     return render(request, 'crudmovies/index.html', context)
 
