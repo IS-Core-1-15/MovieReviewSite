@@ -160,7 +160,6 @@ def editExistingMovie(request):
         movie.title = request.POST['title']
         movie.imdbid = request.POST['imdbid']
         movie.release_year = request.POST['release_year']
-        movie.imdb_rating = request.POST['imdb_rating']
         movie.description = request.POST['description']
 
         movie.save()
