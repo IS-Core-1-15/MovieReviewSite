@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Movie(models.Model):
     movie_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
@@ -18,19 +19,18 @@ class Movie(models.Model):
     @classmethod
     def create(self, movie):
         movie = self(
-            title = movie.title,
-            imdbid = movie.imdbid,
-            runtime = movie.runtime,
-            release_year = movie.year,
-            description = movie.description,
-            main_photo = movie.main_photo,
-            imdb_rating = movie.imdb_rating,
+            title=movie.title,
+            imdbid=movie.imdbid,
+            runtime=movie.runtime,
+            release_year=movie.year,
+            description=movie.description,
+            main_photo=movie.main_photo,
         )
         return movie
 
     def __str__(self):
         return f'{self.title} by {self.release_year}'
- 
+
 
 class Review(models.Model):
     review_id = models.AutoField(primary_key=True)
