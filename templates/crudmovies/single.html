@@ -27,7 +27,9 @@
 				<li><strong>Premiere:</strong> {{movie.release_year}}</li>
 				<li><strong>Category:</strong> Animation/Adventure/Comedy</li> <!--TODO: Do we need to record categories in the DB?-->
 			</ul>
+			<a href="{% url "editMovie" movie_id=movie.movie_id %}" class="button">Edit Movie</a>
 			<a href="{% url "deleteMovie" movie_title=movie.title movie_year=movie.release_year %}" class="button">Delete Movie</a>
+			<br><br><br>
 			<a href="{% url "addReview" movie_id=movie.movie_id %}" class="button">Add Review</a>
 		</div>
 	</div> <!-- .row -->
@@ -41,14 +43,15 @@
 	<div class="entry-content"> <!--TODO: Do we just get this from IMDB?-->
 		{% for review in reviews %}
 		<div class="">
-			<p>User: {{review.username}}</p>
-			<p>Review Date: {{review.review_date}}</p>
-			<p>Description: {{review.description}}</p>
+			<h3>{{review.username}} on {{review.review_date}}</h3>
 			<p>Rating: {{review.rating}} out of 5</p>
-			<p>ID: {{review.review_id}}</p>
+			<br>
+			<p>Description: {{review.description}}</p>
+			<!--<p>ID: {{review.review_id}}</p>-->
+			<a href="{% url "editReview" review_id=review.review_id %}" class="button">Edit Review</a>
 			<a href="{% url "deleteReview" review_id=review.review_id %}" class="button">Delete Review</a>
 		</div>
-		<br><br><hr>
+		<br><hr>
 		{% endfor %}
 	</div>
 	{% endif %}

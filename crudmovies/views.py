@@ -1,3 +1,4 @@
+from django.db.models.base import ModelStateFieldsCacheDescriptor
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -106,8 +107,29 @@ def listPageView(request):
     return HttpResponse('List')
 
 
-def editReviewView(request):
-    return render(request, 'crudmovies/editreview.html')
+def editReviewView(request, review_id):
+    data = Review.objects.get(review_id = review_id)
+
+    context = {
+        "record" : data
+    }
+    return render(request, 'crudmovies/editreview.html', context)
+
+def editExistingReview(request):
+    from datetime import date
+    if request.method == 'POST':
+        review_id = request.POST['review_id']
+
+        review = Review.objects.get(review_id = review_id)
+
+        review.username = request.POST['username']
+        review.rating = request.POST['rating']
+        review.description = request.POST['description']
+        review.review_date = date.today()
+
+        review.save()
+
+        return redirect(moviePageView, review.movie_id)
 
 
 def deleteReviewView(request, review_id):
@@ -117,8 +139,30 @@ def deleteReviewView(request, review_id):
 
     return redirect('moviePageView', movieID=movie)
 
-def editMoviePageView(Request):
-    return HttpResponse('editMoviePageView')
+def editMoviePageView(request, movie_id):
+    data = Movie.objects.get(movie_id = movie_id)
+
+    context = {
+        "record" : data
+    }
+
+    return render(request, 'crudmovies/editmovie.html', context)
+
+def editExistingMovie(request):
+    if request.method == 'POST':
+        movie_id = request.POST['movie_id']
+
+        movie = Movie.objects.get(movie_id = movie_id)
+
+        movie.title = request.POST['title']
+        movie.imdbid = request.POST['imdbid']
+        movie.release_year = request.POST['release_year']
+        movie.imdb_rating = request.POST['imdb_rating']
+        movie.description = request.POST['description']
+
+        movie.save()
+
+        return redirect(moviePageView, movie_id)
 
 
 def addReviewPageView(request, movie_id):
@@ -143,4 +187,4 @@ def addNewReviewPageView(request):
 
         review.save()
 
-        return moviePageView(request, review.movie_id)
+        return redirect(moviePageView, review.movie_id)
