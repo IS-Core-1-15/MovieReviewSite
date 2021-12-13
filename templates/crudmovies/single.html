@@ -29,7 +29,6 @@
 				</li>
 				<li><strong>Length:</strong> {{movie.runtime}}</li>
 				<li><strong>Premiere:</strong> {{movie.release_year}}</li>
-				<li><strong>Category:</strong> Animation/Adventure/Comedy</li> <!--TODO: Do we need to record categories in the DB?-->
 			</ul>
 			<a href="{% url "editMovie" movie_id=movie.movie_id %}" class="button">Edit Movie</a>
 			<a href="{% url "deleteMovie" movie_title=movie.title movie_year=movie.release_year %}" class="button" onclick="return confirm('Are you sure you want to delete this movie?');">Delete Movie</a>
