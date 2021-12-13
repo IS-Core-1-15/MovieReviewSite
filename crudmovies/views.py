@@ -27,7 +27,7 @@ def moviePageView(request, movieID):
 
     context = {
         'movie': movie,
-        'reviews' : reviews,
+        'reviews': reviews,
     }
 
     return render(request, 'crudmovies/single.html', context)
@@ -86,10 +86,10 @@ def contactPageView(request):
 
 
 def searchPageView(request):
-    key = request.POST['key']
+    key = request.POST['key'].title()
     form = request.POST
     if 'key' in request.POST:
-        key = request.POST['key']
+        key = request.POST['key'].title()
         movies = Movie.objects.filter(title__contains=key)
         context = {
             'movielist': movies,
@@ -97,8 +97,6 @@ def searchPageView(request):
     else:
         key = False
         msg = f'Sorry we could not find any movie with that name'
-
-  
 
     return render(request, 'crudmovies/index.html', context)
 
@@ -108,19 +106,20 @@ def listPageView(request):
 
 
 def editReviewView(request, review_id):
-    data = Review.objects.get(review_id = review_id)
+    data = Review.objects.get(review_id=review_id)
 
     context = {
-        "record" : data
+        "record": data
     }
     return render(request, 'crudmovies/editreview.html', context)
+
 
 def editExistingReview(request):
     from datetime import date
     if request.method == 'POST':
         review_id = request.POST['review_id']
 
-        review = Review.objects.get(review_id = review_id)
+        review = Review.objects.get(review_id=review_id)
 
         review.username = request.POST['username']
         review.rating = request.POST['rating']
@@ -139,20 +138,22 @@ def deleteReviewView(request, review_id):
 
     return redirect('moviePageView', movieID=movie)
 
+
 def editMoviePageView(request, movie_id):
-    data = Movie.objects.get(movie_id = movie_id)
+    data = Movie.objects.get(movie_id=movie_id)
 
     context = {
-        "record" : data
+        "record": data
     }
 
     return render(request, 'crudmovies/editmovie.html', context)
+
 
 def editExistingMovie(request):
     if request.method == 'POST':
         movie_id = request.POST['movie_id']
 
-        movie = Movie.objects.get(movie_id = movie_id)
+        movie = Movie.objects.get(movie_id=movie_id)
 
         movie.title = request.POST['title']
         movie.imdbid = request.POST['imdbid']
@@ -166,13 +167,14 @@ def editExistingMovie(request):
 
 
 def addReviewPageView(request, movie_id):
-    data = Movie.objects.get(movie_id = movie_id)
+    data = Movie.objects.get(movie_id=movie_id)
 
     context = {
-        "record" : data
+        "record": data
     }
 
     return render(request, 'crudmovies/addreview.html', context)
+
 
 def addNewReviewPageView(request):
     from datetime import date
