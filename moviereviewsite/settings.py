@@ -1,3 +1,6 @@
+# IS Group 1-15
+# Zachary Heaton, Stephen Williams, Kalvin Wettstein, Spencer Jackson
+
 """
 Django settings for moviereviewsite project.
 
@@ -9,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import dj_database_url 
+import dj_database_url
 import django_heroku
 import django_heroku
 import os
@@ -30,7 +33,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'mytravel-anderson.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost',
+                 '127.0.0.1', 'mytravel-anderson.herokuapp.com']
 
 
 # Application definition
@@ -134,7 +138,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'crudmovies/static')
-] 
+]
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
