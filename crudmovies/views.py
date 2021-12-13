@@ -73,16 +73,8 @@ def saveMoviePageView(request):
     return redirect('index')
 
 
-def joinusPageView(request):
-    return render(request, 'crudmovies/joinus.html')
-
-
 def aboutPageView(request):
     return render(request, 'crudmovies/about.html')
-
-
-def contactPageView(request):
-    return render(request, 'crudmovies/contact.html')
 
 
 def searchPageView(request):
