@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from django.db.models.base import ModelStateFieldsCacheDescriptor
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
@@ -24,10 +25,13 @@ def indexPageView(request):
 def moviePageView(request, movieID):
     movie = Movie.objects.get(movie_id=movieID)
     reviews = Review.objects.filter(movie_id=movie.movie_id)
+    avg = reviews.aggregate(Avg('rating'))
+    avgRating = int((avg['rating__avg']/5)*100)
 
     context = {
         'movie': movie,
         'reviews': reviews,
+        'rating' : avgRating,
     }
 
     return render(request, 'crudmovies/single.html', context)

@@ -21,7 +21,7 @@
 			</div>
 			<ul class="movie-meta">
 				<li><strong>Rating:</strong> 
-					<div class="star-rating" title="Star Ratings"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
+					<div class="star-rating" title="Star Ratings"><span style="width:{{rating}}%"><strong class="rating">{{ rating }}</strong> out of 5</span></div>
 				</li>
 				<li><strong>Length:</strong> {{movie.runtime}}</li>
 				<li><strong>Premiere:</strong> {{movie.release_year}}</li>
@@ -45,7 +45,7 @@
 		<div class="">
 			<h3>{{review.username}} on {{review.review_date}}</h3>
 			{% comment %} <p>Rating: {{review.rating}} out of 5</p> {% endcomment %}
-			Rating: <div class="star-rating" title="Star Ratings"><span style="width:{{review.calcPercent}}%"><strong class="rating">4.00</strong> out of 5</span></div>
+			Rating: <div class="star-rating" title="Star Ratings"><span style="width:{{review.calcPercent}}%"><strong class="rating">{{review.calcPercent}}</strong> out of 5</span></div>
 			<br>
 			<p>Description: {{review.description}}</p>
 			<!--<p>ID: {{review.review_id}}</p>-->
