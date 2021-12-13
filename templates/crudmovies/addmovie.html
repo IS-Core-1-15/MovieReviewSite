@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Add Movie</title>
+{% endblock %}
+{% block content %}
+<div class="breadcrumbs">
+<a href="{% url 'index' %}">Home</a>
+<span>Add Movie</span>
+</div>
+<div class="content">
+<div class="row">
+	<div class="col-md-4">
+		<div class="contact-form">
+        <form method='post' action="{% url 'addMovie' %}">
+			{% csrf_token %}
+            <label for='title'>Find a movie: </label>
+            <input type="text" class="name" name='title' id='title' placeholder="Movie title...">
+			<button type="submit">Search</button>	
+		</form>
+		<p>{{msg}}</p>
+		{% if movie %}
+		<div class='contact-form'>
+			<form method='post' action="{% url 'saveMovie' %}">
+				{% csrf_token %}
+				<input type='hidden' value={{movie.imdbid}} name='movie' id='movie'>
+				<button>Yes, Add Movie</button>
+			</form>
+		</div>
+		{% endif %}
+		</div>
+
+		{% if movie %}
+		<div class="movie-list">
+			<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image" height="300"></figure>
+				<div class="movie-title"><p>{{ movie.title }}</p></div>
+					<p>Runtime: {{ movie.runtime}}</p>
+					<p>Description: {{movie.description}}</p>
+					<p>imdb ID: {{movie.imdbid}}</p>
+		</div> <!-- .movie-list -->
+		{% endif %}
+	</div>
+	<div class="col-md-7 col-md-offset-1">
+		<div class="map"></div>
+	</div>
+</div>
+{% endblock %}

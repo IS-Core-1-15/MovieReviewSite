@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>About</title>
+{% endblock %}
+{% block content %}
+<div class="breadcrumbs">
+	<a href="{% url 'index' %}">Home</a>
+	<span>About us</span>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<figure><img src="{% static "images/crapemoji.jpeg" %}" alt="Crap Emoji"></figure>
+	</div>
+	<div class="col-md-8">
+		<p class="leading">Crud Movies</p>
+		<p>Other movie review sites focus on the good things about movies and leave many movies neglected. Our hope is to make a place where people can write reviews about the worst movies they have seen so that others can see why. If you have never tried watching a terrible movie by choice before we highly suggest giving it a try! Check out reviews on our site to get started with your very first Crud Movie!</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-9">
+		<h2 class="section-title">Vision &amp; Misssion</h2>
+		<p>Crud Movies was founded by a group of friends in college who loved to find the worst movies they could and laugh at them together. This activity soon grew into a club of more and more people in constant competition to find the worst movies of all time to share with their friends.</p>
+
+		<p>This brought about so many amazing memories that made college life truly special. Our vision is that others will be able to enjoy the same experiences of watching the worst movies around with their friends. We understand that sometimes it's hard to do the research and find the worst movies to watch, so we have made this site to help fellow enjoyers of bad entertainment to be able to share with each other. This is Crud Movies.</p>
+	</div>
+	<div class="col-md-3">
+		<h2 class="section-title">Useful Links</h2>
+		<ul class="arrow">
+			<li><a href="{% url 'addMovie' %}">Add a movie</a></li> 
+			<!-- Add actual links on these when we make those pages -->
+			<li><a href="{% url 'index' %}">Search</a></li>
+		</ul>
+	</div>
+</div> <!-- .row -->
+
+<h2 class="section-title">Directors of some of the worst movies, check them out!</h2>
+<div class="row">
+
+	<div class="col-md-3">
+		<div class="team">
+			<figure class="team-image"><img src="{% static "images/sharknado.jpeg" %}" alt="Anthony C. Ferrante"></figure>
+			<h2 class="team-name">Anthony C. Ferrante</h2>
+			<small class="team-title">Sharknado</small>
+			<div class="social-links">
+				<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="facebook"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="twitter"><i class="fa fa-twitter"></i></a>
+				<a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="pinterest"><i class="fa fa-pinterest"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="team">
+			<figure class="team-image"><img src="{% static "images/troll.jpeg" %}" alt="Claudio Fragasso"></figure>
+			<h2 class="team-name">Claudio Fragasso</h2>
+			<small class="team-title">Troll 2</small>
+			<div class="social-links">
+				<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="facebook"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="twitter"><i class="fa fa-twitter"></i></a>
+				<a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="pinterest"><i class="fa fa-pinterest"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="team">
+			<figure class="team-image"><img src="{% static "images/beachparty.jpeg" %}" alt="Del Tenney"></figure>
+			<h2 class="team-name">Del Tenney</h2>
+			<small class="team-title">The Horror of Party Beach</small>
+			<div class="social-links">
+				<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="facebook"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="twitter"><i class="fa fa-twitter"></i></a>
+				<a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="pinterest"><i class="fa fa-pinterest"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="team">
+			<figure class="team-image"><img src="{% static "images/airbender.jpg" %}" alt="M. Night Shyamalan"></figure>
+			<h2 class="team-name">M. Night Shyamalan</h2>
+			<small class="team-title">The Last Airbender</small>
+			<div class="social-links">
+				<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="facebook"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="twitter"><i class="fa fa-twitter"></i></a>
+				<a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="pinterest"><i class="fa fa-pinterest"></i></a>
+			</div>
+		</div>
+	</div>
+	
+</div>
+{% endblock %}

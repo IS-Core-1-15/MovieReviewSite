@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Movies</title>
+{% endblock %}
+{% block content %}
+<div class="movie-list">
+	{% for movie in movielist %}
+	<div class="movie">
+		<figure class="movie-poster"><img src="{{ movie.main_photo }}" alt="{{ movie.title }} image" height="300"></figure>
+		<div class="movie-title"><a href="{% url 'moviePageView' movieID=movie.movie_id%}">{{ movie.title }}</a></div>
+		<p>{{movie.release_year}}</p>
+	</div>
+	{% endfor %}
+</div> <!-- .movie-list -->
+
+{% comment %} <div class="pagination"> <!-- TODO: Paginagtion work?-->
+	<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+	<span class="page-number current">1</span>
+	<a href="#" class="page-number">2</a>
+	<a href="#" class="page-number">3</a>
+	<a href="#" class="page-number">4</a>
+	<a href="#" class="page-number">5</a>
+	<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+</div> {% endcomment %}
+{% endblock %}

@@ -1,16 +1,20 @@
-from django.urls import path
-from .views import indexPageView, movieInfoPageView, addMoviePageView, addReviewPageView, searchPageView, listPageView, aboutPageView, editMoviePageView, deleteMovieView, deleteReviewView, deleteReviewView, editReviewView
+from django.urls import path, include
+from .views import *
 
 urlpatterns = [
     path('', indexPageView, name='index'),
-    path('movie/<str:movieID>', movieInfoPageView, name='movieInfoPageView'),
-    path('movie/<str:movieID>/editMovie', addMoviePageView, name='addMoviePageView'),
-    path('', searchPageView, name='search'),
-    path('', listPageView, name='list'),
-    path('movie/<str:movieID>/editReview/<int:reviewID>/', addReviewPageView, name='addReviewPageView'),
-    path('', aboutPageView, name='about'),
-    path('', editMoviePageView, name='editMovie'),
-    path('deleteMovie/', deleteMovieView, name='deleteMovie'),
-    path('deleteReview/', deleteReviewView, name='deleteReview'),
-    path('editReviewView/', editReviewView, name='editReview')
+    path('movie/<int:movieID>/', moviePageView, name='moviePageView'),
+    path('about/', aboutPageView, name='about'),
+    path('search/', searchPageView, name='search'),
+    path('list/', listPageView, name='list'),
+    path('deleteReview/<int:review_id>', deleteReviewView, name='deleteReview'),
+    path('editReviewView/<int:review_id>', editReviewView, name='editReview'),
+    path('editExistingReview', editExistingReview, name='editExistingReview'),
+    path('addreview/<int:movie_id>', addReviewPageView, name='addReview'),
+    path('addNewReview', addNewReviewPageView, name='saveNewReview'),
+    path('addMovie/', addPageView, name='addMovie'),
+    path('deleteMovie/<str:movie_title>/<str:movie_year>', deleteMoviePageView, name='deleteMovie'),
+    path('editMovie/<int:movie_id>', editMoviePageView, name='editMovie'),
+    path('editExistingMovie', editExistingMovie, name='editExistingMovie'),
+    path('saveMovie/', saveMoviePageView, name='saveMovie')
 ]

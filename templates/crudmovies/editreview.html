@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Add Movie</title>
+{% endblock %}
+{% block content %}
+
+<h2>Edit review written by {{record.username}} on {{record.review_date}}</h2>
+<br>
+<form name="form" method="post" action="{% url 'editExistingReview' %}">
+    {% csrf_token %}
+
+    <input type="hidden" id="review_id" name="review_id" value="{{record.review_id}}">
+
+    <label for='username'>Username:</label>
+    <input type="text" name='username' id='username' value="{{record.username}}">
+    <br><br>
+
+    <label for='rating'>Rating (between 0-5):</label>
+    <input type="number" step="0.1" min="0" max="5" name='rating' id='rating' value="{{record.rating}}">
+    <br><br>
+
+    <label for='description'>Description:</label>
+    <input type="text" name='description' id='description' value="{{record.description}}">
+    <br><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+{% endblock %}
