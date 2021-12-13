@@ -48,5 +48,8 @@ class Review(models.Model):
     class Meta:
         db_table = 'review'
 
+    def calcPercent(self):
+        return int(((self.rating / 5) * 100))
+
     def __str__(self):
         return f'{self.username}: {self.movie}-{self.rating}'
