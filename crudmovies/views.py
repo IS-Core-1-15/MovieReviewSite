@@ -25,15 +25,21 @@ def indexPageView(request):
 def moviePageView(request, movieID):
     movie = Movie.objects.get(movie_id=movieID)
     reviews = Review.objects.filter(movie_id=movie.movie_id)
-    avg = reviews.aggregate(Avg('rating'))
-    avgRating = int((avg['rating__avg']/5)*100)
 
     context = {
         'movie': movie,
         'reviews': reviews,
-        'rating' : avgRating,
+        'count' : len(reviews),
     }
 
+    if len(reviews) > 0 :
+        avg = reviews.aggregate(Avg('rating'))
+        avgRating = int((avg['rating__avg']/5)*100)
+        context['rating'] = avgRating
+    else :
+        msg = 'No reviews yet'
+        context['msg'] = msg
+        
     return render(request, 'crudmovies/single.html', context)
 
 
