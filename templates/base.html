@@ -70,38 +70,32 @@
 					<div class="row">
 						<div class="col-md-2">
 							<div class="widget">
-								<h3 class="widget-title">About Us</h3>
+								<h3 class="widget-title">Crud Movies</h3>
 								<p>Rate only terrible movies here. The higher the rating the worse the movie!</p>
 							</div>
 						</div>
 						<div class="col-md-2"> <!--TODO: Figure out what to do here -->
 							<div class="widget">
-								<h3 class="widget-title">Recent Review</h3>
+								<h3 class="widget-title">Help us out?</h3>
 								<ul class="no-bullet">
-									<li><a href="#">Dynamic? Review 1</a></li>
-									<li><a href="#">Dynamic? Review 2</a></li>
-									<li><a href="#">Dynamic? Review 3</a></li>
+									<li><a href="{% url 'addMovie' %}">Add Movie</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="widget">
-								<h3 class="widget-title">Help Center</h3>
+								<h3 class="widget-title">Learn More</h3>
 								<ul class="no-bullet">
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Accessibility</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Terms &amp; Conditions</a></li>
+									<li><a href="{% url 'about' %}">About Us</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="widget">
-								<h3 class="widget-title">Join Us</h3>
+								<h3 class="widget-title">Other Review Sites</h3>
 								<ul class="no-bullet">
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Locations</a></li>
-									<li><a href="#">About</a></li>
+									<li><a href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">IMDB</a></li>
+									<li><a href="https://www.rottentomatoes.com/" target="_blank" rel="noopener noreferrer">Rotten Tomatoes</a></li>
 								</ul>
 							</div>
 						</div>
@@ -117,10 +111,8 @@
 						</div>
 						<div class="col-md-2">
 							<div class="widget">
-								<h3 class="widget-title">Newsletter</h3>
-								<form action="#" class="subscribe-form">
-									<input type="text" placeholder="Email Address">
-								</form>
+								<h3 class="widget-title">Thanks for your support</h3>
+								<p>We hope for this site to grow with the community. Let's help others to find the worst movies available!</p>
 							</div>
 						</div>
 					</div> <!-- .row -->

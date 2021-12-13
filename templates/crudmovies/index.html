@@ -4,20 +4,6 @@
 <title>Movies</title>
 {% endblock %}
 {% block content %}
-<div class="filters">
-	<select name="#" id="#" placeholder="Choose Category"> <!-- TODO: Do we need to include these in the DB?-->
-		<option value="#">Action</option>
-		<option value="#">Drama</option>
-		<option value="#">Fantasy</option>
-		<option value="#">Horror</option>
-		<option value="#">Adventure</option>
-	</select>
-	<select name="#" id="#">
-		<option value="#">2012</option>
-		<option value="#">2013</option>
-		<option value="#">2014</option>
-	</select>
-</div>
 <div class="movie-list">
 	{% for movie in movielist %}
 	<div class="movie">
