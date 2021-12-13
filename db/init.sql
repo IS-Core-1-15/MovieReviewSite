@@ -4,7 +4,6 @@ CREATE TABLE movie (
     imdbid char(10) NOT NULL,
     release_year int,
     runtime varchar(10),
-    imdb_rating float,
     main_photo char(200),
     description char(300)
 );
