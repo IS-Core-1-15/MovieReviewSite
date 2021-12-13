@@ -1,0 +1,11 @@
+addMovie {
+    border: none;
+    background: #ffaa3c;
+    padding: 10px;
+    border-radius: 3px;
+    color: #92601e;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+    cursor: pointer;
+}

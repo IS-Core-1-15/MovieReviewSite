@@ -425,7 +425,7 @@ ul.arrow {
   font-family: "FontAwesome"; }
 
 .star-rating:before {
-  content: "\f005\f005\f005\f005\f005";
+  content: "\f165\f165\f165\f165\f165";
   float: left;
   top: 0;
   left: 0;
@@ -440,7 +440,7 @@ ul.arrow {
   padding-top: 1.5em; }
 
 .star-rating span:before {
-  content: "\f005\f005\f005\f005\f005";
+  content: "\f165\f165\f165\f165\f165";
   top: 0;
   position: absolute;
   left: 0;
