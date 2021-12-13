@@ -49,6 +49,14 @@ def addPageView(request):
     elif request.method == 'POST':
         key = request.POST['title']
         movie = searchMovie(key)
+        try:
+            check = Movie.objects.get(imdbid=movie.imdbid)
+        except Exception as e:
+            print(e)
+            check = False
+            
+        if check:
+            return redirect('moviePageView', movieID=check.movie_id)
 
         if movie.title == '':
             context = {
