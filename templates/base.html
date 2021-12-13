@@ -49,10 +49,10 @@
 							<li class="menu-item"></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
-					<form action="{% url 'search' %}" method="get">
-						{% csrf_token %}
-						<input type="text" name="search" placeholder="Search movie title...">
-						<button><i class="fa fa-search"></i></button>
+						<form action="{% url 'search' %}" method="post" id='searchForm'>
+							{% csrf_token %}
+							<input type="text" id='key' name="key" placeholder="Search movie title...">
+							<button type='submit'><i class="fa fa-search"></i></button>
 						</form>
 
 					<div class="mobile-navigation"></div>
