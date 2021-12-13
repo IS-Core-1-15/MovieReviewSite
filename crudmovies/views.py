@@ -39,7 +39,7 @@ def moviePageView(request, movieID):
     else :
         msg = 'No reviews yet'
         context['msg'] = msg
-        
+
     return render(request, 'crudmovies/single.html', context)
 
 
@@ -92,7 +92,7 @@ def searchPageView(request):
     form = request.POST
     if 'key' in request.POST:
         key = request.POST['key'].title()
-        movies = Movie.objects.filter(title__contains=key)
+        movies = Movie.objects.filter(title__icontains=key)
         context = {
             'movielist': movies,
         }
@@ -160,7 +160,6 @@ def editExistingMovie(request):
         movie.title = request.POST['title']
         movie.imdbid = request.POST['imdbid']
         movie.release_year = request.POST['release_year']
-        movie.imdb_rating = request.POST['imdb_rating']
         movie.description = request.POST['description']
 
         movie.save()
