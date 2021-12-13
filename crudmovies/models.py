@@ -11,7 +11,6 @@ class Movie(models.Model):
     release_year = models.IntegerField()
     description = models.TextField(max_length=300)
     main_photo = models.URLField(max_length=200)
-    imdb_rating = models.FloatField()
 
     class Meta:
         db_table = 'movie'
