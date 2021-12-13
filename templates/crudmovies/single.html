@@ -21,7 +21,11 @@
 			</div>
 			<ul class="movie-meta">
 				<li><strong>Rating:</strong> 
+					{% if rating %}
 					<div class="star-rating" title="Star Ratings"><span style="width:{{rating}}%"><strong class="rating">{{ rating }}</strong> out of 5</span></div>({{count}} Reviews)
+					{% else %}
+					<div class="star-rating" title="Star Ratings"><span style="width:0%"><strong class="rating">{{ msg }}</strong></span></div>{{msg}}
+					{% endif %}
 				</li>
 				<li><strong>Length:</strong> {{movie.runtime}}</li>
 				<li><strong>Premiere:</strong> {{movie.release_year}}</li>
